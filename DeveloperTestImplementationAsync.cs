@@ -31,11 +31,7 @@ namespace DeveloperTest
 
             Task.WhenAll(tasks).ContinueWith(x => dt.Print(output).ContinueWith(_ =>
             {
-                lock (dt._locker)
-                {
-                    //mark flag to true to signal that the delayed printing need to stop
-                    dt._finished = true;
-                }
+                dt.Finished = true;
             })).Wait();
 
             printCounterTask.Wait();

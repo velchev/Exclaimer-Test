@@ -3,7 +3,6 @@
     using System.IO;
     using DeveloperTestInterfaces;
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -11,8 +10,20 @@
     public class DeveloperTest
     {
         private readonly WordsDictionary _dictionary = new WordsDictionary();
-        public readonly object _locker = new object();
-        public bool _finished;
+        private readonly object _locker = new object();
+        private bool _finished;
+
+        public bool Finished
+        {
+            get => _finished;
+            set
+            {
+                lock (_locker)
+                {
+                    _finished = value;
+                }
+            }
+        }
 
         public async Task ProcessReaderAsync(ICharacterReader reader)
         {
@@ -68,9 +79,11 @@
         {
             while (true)
             {
-                if (!_finished)
+                if (!Finished)
                 {
                     //every 10 seconds should print. 
+                    //at least one print even if the execution is less than 10 seconds
+                    //as this starts in paralel with the processing
                     Task.Delay(10 * 1000).Wait();
                     await Print(output);
                 }
