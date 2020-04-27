@@ -20,10 +20,6 @@
             }
         }
 
-        public void Clean()
-        {
-            Dictionary = new Dictionary<string, int>();
-        }
         public Dictionary<string, int> Dictionary { get; private set; } = new Dictionary<string, int>();
     }
 }

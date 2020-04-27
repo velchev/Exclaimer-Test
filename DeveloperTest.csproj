@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CharExtensions.cs" />
+    <Compile Include="DeveloperTest.cs" />
     <Compile Include="DeveloperTestImplementation.cs" />
     <Compile Include="DeveloperTestImplementationAsync.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
