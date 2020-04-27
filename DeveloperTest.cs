@@ -10,20 +10,7 @@
     public class DeveloperTest
     {
         private readonly WordsDictionary _dictionary = new WordsDictionary();
-        private readonly object _locker = new object();
-        private bool _finished;
-
-        public bool Finished
-        {
-            get => _finished;
-            set
-            {
-                lock (_locker)
-                {
-                    _finished = value;
-                }
-            }
-        }
+        public bool Finished { get; set; }
 
         public async Task ProcessReaderAsync(ICharacterReader reader)
         {
