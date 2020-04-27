@@ -64,6 +64,7 @@
     <Compile Include="DeveloperTestImplementation.cs" />
     <Compile Include="DeveloperTestImplementationAsync.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WordsDictionary.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="ReadMe.txt" />
